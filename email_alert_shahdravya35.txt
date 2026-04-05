@@ -1,0 +1,12 @@
+TO: shahdravya35@gmail.com
+SUBJECT: CRITICAL - Stock Expiry Warning
+
+The following batches are nearing expiration:
+
+- Batch #B1001 (Product ID 1): 5000 units, expires 2027-04-04
+- Batch #B1002 (Product ID 2): 998 units, expires 2026-10-01
+- Batch #B1001 (Product ID 1): 200 units, expires 2027-04-04
+- Batch #B1002 (Product ID 2): 50 units, expires 2026-10-01
+- Batch #B1003 (Product ID 3): 300 units, expires 2028-03-04
+- Batch #XYZ (Product ID 2): 100 units, expires 2027-04-04
+- Batch #B-NEW (Product ID 4): 50 units, expires 2027-04-04

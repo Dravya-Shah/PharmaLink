@@ -1,0 +1,13 @@
+fastapi[standard]
+sqlalchemy
+pydantic
+alembic
+python-jose[cryptography]
+passlib[bcrypt]
+langchain
+langchain-community
+langchain-openai
+python-dotenv
+pandas
+scikit-learn
+uvicorn
