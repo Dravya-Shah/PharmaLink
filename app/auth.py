@@ -21,7 +21,6 @@ def register_user(user: schemas.UserCreate, db: Session = Depends(database.get_d
     hashed_password = get_password_hash(user.password)
     # Default is_active to False. We allow super_admin direct access for Hackathon demo setup purposes.
     initial_active_state = True if user.role == "super_admin" else False
-    
     db_user = models.User(username=user.username, role=user.role, hashed_password=hashed_password, is_active=initial_active_state)
     db.add(db_user)
     db.commit()
@@ -30,7 +29,8 @@ def register_user(user: schemas.UserCreate, db: Session = Depends(database.get_d
 
 @router.post("/login")
 def login(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
-    db_user = db.query(models.User).filter(models.User.username == user.username).first()
+    # print(user.username.strip()+"test")
+    db_user = db.query(models.User).filter(models.User.username == user.username.strip()).first()
     if not db_user:
         raise HTTPException(status_code=400, detail="Incorrect username or password")
         

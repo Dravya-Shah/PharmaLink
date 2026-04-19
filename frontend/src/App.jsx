@@ -4,7 +4,7 @@ import { Shield, Activity, Package, AlertTriangle, LogOut, ShoppingCart, Message
 import BarcodeScannerComponent from "react-qr-barcode-scanner";
 import './index.css';
 
-const API_URL = 'http://localhost:8000/api/v1';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
 
 function Dashboard({ token, role, userId, userLocs, onLogout }) {
   // Normalize role string 
