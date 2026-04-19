@@ -5,11 +5,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Use SQLite so no database installation is needed
-SQLALCHEMY_DATABASE_URL = os.getenv(
-    "DATABASE_URL", 
-    "sqlite:///./pharmalink.db"
-)
+# Use SQLite so no database installation is needed locally
+if os.getenv("VERCEL"):
+    # Vercel has a read-only filesystem except for /tmp/
+    default_db = "sqlite:////tmp/pharmalink.db"
+else:
+    default_db = "sqlite:///./pharmalink.db"
+
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", default_db)
 
 # Cloud providers often use postgres:// but SQLAlchemy 1.4+ needs postgresql://
 if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
