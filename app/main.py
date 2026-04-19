@@ -45,3 +45,9 @@ def root():
 @app.get("/health")
 def health_check():
     return {"status": "ok", "message": "PharmaLink Core System is running."}
+
+@app.get("/api/v1/dev/seed")
+def seed_database():
+    import seed
+    seed.seed_db()
+    return {"message": "Database seeded successfully!"}
